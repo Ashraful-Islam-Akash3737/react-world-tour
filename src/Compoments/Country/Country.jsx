@@ -2,12 +2,12 @@
 import { useState } from 'react';
 import './Country.css'
 
-const Country = ({country}) => {
-    console.log(country)
+const Country = ({country, handleVisitedCountry}) => {
+    // console.log(country)
     const {name, flags, population, area, capital, continents, independent, languages , cca3} = country;
 
     const [visited, setVisited] = useState(false);
-    const handleVisitedCountry = (e) => {
+    const handleVisited = (e) => {
         setVisited(!visited);
         if (visited) {
             const visitedCountry = e.target;
@@ -17,9 +17,9 @@ const Country = ({country}) => {
             goingCountry.className = "going-country";
         }
     }
-
+    // console.log(handleVisitedCountry);
     return (
-        <div className="country">
+        <div className={`country ${visited && "visited"}`}>
             <h3>Name: {name?.common} </h3>
             <h4>Capital: {capital} </h4>
             <img src={flags?.png} alt="" />
@@ -30,7 +30,13 @@ const Country = ({country}) => {
             <p><small>Code: {cca3} </small></p>
             <p>Languages: {languages?.eng ? languages?.eng : "Unknown"}</p>
             <br />
-            <button className={visited ? "visited-country" : "going-country"} onClick={handleVisitedCountry}>{visited ? "Visited" : "Going"}</button>
+            <br />
+            <button onClick={()=>{
+                handleVisitedCountry(country)
+            }}>Mark as visited</button>
+            <br />
+            <br />
+            <button className={visited ? "visited-country" : "going-country"} onClick={handleVisited}>{visited ? "Visited" : "Going"}</button>
             <br />
             <br />
             {visited ? "I have visited this country" : "I want to visit this country"}
