@@ -30,7 +30,7 @@ const Countries = () => {
             <h3>Countries: {countries.length} </h3>
 
             <div>
-                <h3>Visited countries: {visitedCountries.length} </h3>
+                <h3>Visited countries are: {visitedCountries.length} </h3>
                 <ol id='Mark-as-visited'>
                     {
                         visitedCountries.map((country)=><li key={country.cca3}>{country.name.common}</li>)
