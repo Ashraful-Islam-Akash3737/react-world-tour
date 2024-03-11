@@ -1,6 +1,16 @@
 .country{
     border: 2px solid tomato;
     margin: 15px;
-    padding: 15px;
+    padding: 20px;
     border-radius: 15px;
+}
+.visited-country{
+    background-color: rgb(0, 255, 42);
+    color: white;
+    border: none;
+}
+.going-country{
+    background-color: rgb(255, 89, 0);
+    color: black;
+    border: none;
 }
